@@ -7,11 +7,13 @@ def main():
     finance = Finance()
     client = TradingClient()
     bot = TelegramBot()
+    candidate = 'BTC', 'ETH', 'SOL'
+
     try:
         bot.send_message('📌 UPBIT_1HOUR_AUTOMATION')
         balance = client.get_balance()
         total_balance = 0
-        for ticker in 'BTC', 'ETH', 'KRW':
+        for ticker in candidate + ['KRW']:
             if ticker not in balance:
                 continue
             if ticker == 'KRW':
@@ -22,13 +24,13 @@ def main():
             ) * finance.get_current_price(ticker)
         bot.send_message(f'💰 전체 잔고 : ₩{int(total_balance):,}')
         # print(total_balance)
-        for ticker in 'BTC', 'ETH':
+        for ticker in candidate:
             print(f'[{ticker}]')
             if ticker in balance:
                 asset_balance = float(balance[ticker]['balance'])
             else:
                 asset_balance = 0
-            max_budget = finance.max_ratio(ticker) * total_balance
+            max_budget = finance.max_ratio(ticker) * total_balance / len(candidate)
             current_price = finance.get_current_price(ticker)
             now_asset = asset_balance * current_price
             print(f'SCORE : {finance.get_score(ticker)}')

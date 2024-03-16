@@ -45,4 +45,4 @@ class Finance:
         return self.get_score(ticker) > 0
 
     def max_ratio(self, ticker: str) -> float:
-        return 0.005 / self.get_aatr(ticker)
+        return max(0.01 / self.get_aatr(ticker), 0.01)
