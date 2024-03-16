@@ -8,19 +8,19 @@ def main():
     client = TradingClient()
     bot = TelegramBot()
     try:
-        bot.send_message("📌 UPBIT_1HOUR_AUTOMATION")
+        bot.send_message('📌 UPBIT_1HOUR_AUTOMATION')
         balance = client.get_balance()
         total_balance = 0
-        for ticker in "BTC", "ETH", "KRW":
+        for ticker in 'BTC', 'ETH', 'KRW':
             if ticker not in balance:
                 continue
-            if ticker == "KRW":
+            if ticker == 'KRW':
                 total_balance += float(balance[ticker]['balance'])
                 continue
             total_balance += float(
-                balance[ticker]["balance"]
+                balance[ticker]['balance']
             ) * finance.get_current_price(ticker)
-        bot.send_message(f"💰 전체 잔고 : ₩{int(total_balance):,}")
+        bot.send_message(f'💰 전체 잔고 : ₩{int(total_balance):,}')
         # print(total_balance)
         for ticker in 'BTC', 'ETH':
             print(f'[{ticker}]')
@@ -35,15 +35,15 @@ def main():
             print(f'AATR : {finance.get_aatr(ticker)}')
             if now_asset >= max_budget:
                 print(f'🫨 최대 매수 금액 도달로 인한 청산 : {ticker}')
-                bot.send_message(f"🫨 최대 매수 금액 도달로 인한 청산 : {ticker}")
+                bot.send_message(f'🫨 최대 매수 금액 도달로 인한 청산 : {ticker}')
                 client.sell(ticker, asset_balance)
             elif finance.signal(ticker):
                 print(f'🫡 20분할 매수 진행 : {ticker}')
-                bot.send_message(f"🫡 20분할 매수 진행 : {ticker}")
+                bot.send_message(f'🫡 20분할 매수 진행 : {ticker}')
                 client.buy(ticker, int(max_budget // 20))
             elif not finance.signal(ticker) and asset_balance > 0:
                 print(f'😱 하락 추세로 인한 청산 : {ticker}')
-                bot.send_message(f"😱 하락 추세로 인한 청산 : {ticker}")
+                bot.send_message(f'😱 하락 추세로 인한 청산 : {ticker}')
                 client.sell(ticker, asset_balance)
 
     except requests.exceptions.HTTPError as e:
@@ -52,14 +52,14 @@ def main():
     except Exception as e:
         print(type(e))
         print(e)
-        bot.send_message(f"{type(e)}\n{e}")
+        bot.send_message(f'{type(e)}\n{e}')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     from dotenv import load_dotenv
 
     load_dotenv()
     import warnings
 
-    warnings.filterwarnings("ignore")
+    warnings.filterwarnings('ignore')
     main()
