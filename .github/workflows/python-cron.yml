@@ -2,7 +2,7 @@ name: Python Cron Job
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 * * * *'
   push:
     branches:
       - main
@@ -28,4 +28,7 @@ jobs:
         env:
             TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
             TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+            TRADING_API_URL: ${{ secrets.TRADING_API_URL }}
+            TRADING_API_KEY: ${{ secrets.TRADING_API_KEY }}
+            TRADING_SECRET_KEY: ${{ secrets.TRADING_SECRET_KEY }}
         run: python main.py
