@@ -13,7 +13,7 @@ def main():
         bot.send_message('📌 UPBIT_1HOUR_AUTOMATION')
         balance = client.get_balance()
         total_balance = 0
-        for ticker in candidate + ['KRW']:
+        for ticker in list(candidate) + ['KRW']:
             if ticker not in balance:
                 continue
             if ticker == 'KRW':
