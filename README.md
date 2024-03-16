@@ -1,9 +1,12 @@
 # 📌 GitHub Actions Cron Job With Python
+> [UPBIT Flask
+](https://github.com/Goldwyn-Cooper/flask_with_gunicorn_in_docker_for_upbit)의 cron job 수행
 
 ## 📦 Tech Stack
 ![Python](https://img.shields.io/badge/python-3776AB.svg?&style=for-the-badge&logo=python&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/githubactions-2088FF.svg?&style=for-the-badge&logo=githubactions&logoColor=white)
-![Telegram](https://img.shields.io/badge/telegram-26A5E4.svg?&style=for-the-badge&logo=telegram&logoColor=white) 
+![Telegram](https://img.shields.io/badge/telegram-26A5E4.svg?&style=for-the-badge&logo=telegram&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-150458.svg?&style=for-the-badge&logo=pandas&logoColor=white) 
 
 ## 🏁 Start
 ### Install & Test
