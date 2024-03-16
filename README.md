@@ -10,7 +10,7 @@
 ```shell
 $ python3 -m venv venv
 $ source venv/bin/activate
-# pip install requests python-dotenv -q
+# pip install requests python-dotenv pyupbit -q
 # pip freeze > requirements.txt
 $ pip install -r requirements.txt
 # touch .env  # dotenv 혹은 환경변수 설정 필요
