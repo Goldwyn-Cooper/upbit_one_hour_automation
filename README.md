@@ -1,4 +1,4 @@
-# 📌 GitHub Actions Cron Job With Python
+# 📌 Upbit 1 Hour Automation
 > [UPBIT Flask
 ](https://github.com/Goldwyn-Cooper/flask_with_gunicorn_in_docker_for_upbit)의 cron job 수행
 
