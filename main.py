@@ -42,7 +42,7 @@ def main():
             elif finance.signal(ticker):
                 print(f'🫡 20분할 매수 진행 : {ticker}')
                 bot.send_message(f'🫡 20분할 매수 진행 : {ticker}')
-                client.buy(ticker, int(max_budget // 20))
+                client.buy(ticker, max(5500, int(max_budget // 20)))
             elif not finance.signal(ticker) and asset_balance > 0:
                 print(f'😱 하락 추세로 인한 청산 : {ticker}')
                 bot.send_message(f'😱 하락 추세로 인한 청산 : {ticker}')
