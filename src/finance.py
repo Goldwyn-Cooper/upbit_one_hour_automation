@@ -13,7 +13,7 @@ class Finance:
             yield b
 
     def __init__(self):
-        self.fibo = list(self.gen_fibo())
+        self.fibo = list(self.gen_fibo(100))
 
     cache_price = {}
 
@@ -31,9 +31,9 @@ class Finance:
         price = self.get_price(ticker)
         sum_val = 0
         for f in self.fibo:
-            func = lambda x: (x[-1] / x[0] - 1) / f * 100
+            func = lambda x: (x[-1] / x[0] - 1) * 100
             change = price.close.rolling(f).apply(func).iloc[-1]
-            sum_val += change / f
+            sum_val += change
         return sum_val / len(self.fibo)
 
     def get_aatr(self, ticker: str) -> float:
