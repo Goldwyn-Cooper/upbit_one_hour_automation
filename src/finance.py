@@ -13,7 +13,8 @@ class Finance:
             yield b
 
     def __init__(self):
-        self.fibo = list(self.gen_fibo(100))
+        period = 100
+        self.fibo = list(self.gen_fibo(period))
 
     cache_price = {}
 
