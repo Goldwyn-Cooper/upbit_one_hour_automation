@@ -40,9 +40,9 @@ def main():
                 bot.send_message(f'🫨 최대 매수 금액 도달로 인한 청산 : {ticker}')
                 client.sell(ticker, asset_balance)
             elif finance.signal(ticker):
-                print(f'🫡 20분할 매수 진행 : {ticker}')
-                bot.send_message(f'🫡 20분할 매수 진행 : {ticker}')
-                client.buy(ticker, max(5500, int(max_budget // 20)))
+                print(f'🫡 12분할 매수 진행 : {ticker}')
+                bot.send_message(f'🫡 12분할 매수 진행 : {ticker}')
+                client.buy(ticker, max(5500, int(max_budget // 12)))
             elif not finance.signal(ticker) and asset_balance > 0:
                 print(f'😱 하락 추세로 인한 청산 : {ticker}')
                 bot.send_message(f'😱 하락 추세로 인한 청산 : {ticker}')
