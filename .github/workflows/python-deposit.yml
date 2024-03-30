@@ -1,4 +1,4 @@
-name: Python Cron Job
+name: Deposit Check
 
 on:
   schedule:
@@ -31,4 +31,7 @@ jobs:
             TRADING_API_URL: ${{ secrets.TRADING_API_URL }}
             TRADING_API_KEY: ${{ secrets.TRADING_API_KEY }}
             TRADING_SECRET_KEY: ${{ secrets.TRADING_SECRET_KEY }}
-        run: python main.py
+            GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+            GH_ORG_NAME: ${{ secrets.GH_ORG_NAME }}
+            GH_REPO_NAME: ${{ secrets.GH_REPO_NAME }}
+        run: python deposit.py
