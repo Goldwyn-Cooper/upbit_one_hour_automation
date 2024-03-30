@@ -33,3 +33,14 @@ class TradingClient:
         response = requests.post(self.domain + '/sell', json=payload)
         response.raise_for_status()
         return response.json()
+    
+    def deposit(self, amount):
+        payload = dict(ak=self.api_key, sk=self.secret_key, amount=amount)
+        response = requests.post(self.domain + '/deposit', json=payload)
+        response.raise_for_status()
+        return response.json()
+    
+    def check_cash(self) -> float:
+        balance : dict = self.get_balance()
+        cash_balance : dict = balance.get('KRW', {})
+        return float(cash_balance.get('balance', '0.0'))
