@@ -1,4 +1,4 @@
-name: Deposit Check
+name: Buying Coins
 
 on:
   schedule:
