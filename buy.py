@@ -21,7 +21,7 @@ def main():
         make_github_issue(header, body)
         bot.send_message('📌 UPBIT_1HOUR_AUTOMATION')
         msg = '금액이 부족해 매수할 수 없습니다!\n'
-        msg += f'- 현재금액: ₩{int(cash_val):,}'
+        msg += f'- 현재금액: ₩{int(cash_val):,}\n'
         msg += f'- 필요금액: ₩{int(MIN_CASH - cash_val) + 1:,}'
         bot.send_message(msg)
         return
