@@ -3,9 +3,9 @@ name: Buying Coins
 on:
   schedule:
     - cron: '10 4 * * *'
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   run-python-script:
