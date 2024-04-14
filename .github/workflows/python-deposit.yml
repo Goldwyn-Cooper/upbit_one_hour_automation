@@ -3,9 +3,9 @@ name: Deposit Check
 on:
   schedule:
     - cron: '0 * * * *'
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   run-python-script:

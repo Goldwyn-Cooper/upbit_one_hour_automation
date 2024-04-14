@@ -2,10 +2,10 @@ name: Deposit Check
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  push:
-    branches:
-      - main
+    - cron: '5 * * * *'
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   run-python-script:
