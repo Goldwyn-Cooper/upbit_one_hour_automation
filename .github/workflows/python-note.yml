@@ -1,0 +1,35 @@
+name: Deposit Check
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  push:
+    branches:
+      - main
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 파이썬 셋업
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: 의존성 설치
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 스크립트 실행
+        env:
+            TRADING_API_URL: ${{ secrets.TRADING_API_URL }}
+            TRADING_API_KEY: ${{ secrets.TRADING_API_KEY }}
+            TRADING_SECRET_KEY: ${{ secrets.TRADING_SECRET_KEY }}
+            AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+            AIRTABLE_TABLE_ID: ${{ secrets.AIRTABLE_TABLE_ID }}
+            AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+        run: python note.py

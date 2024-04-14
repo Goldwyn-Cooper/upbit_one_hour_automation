@@ -44,3 +44,16 @@ class TradingClient:
         balance : dict = self.get_balance()
         cash_balance : dict = balance.get('KRW', {})
         return float(cash_balance.get('balance', '0.0'))
+    
+    def get_deposit_list(self, currency:str, dt:str) -> dict:
+        payload = dict(ak=self.api_key, sk=self.secret_key, currency=currency, dt=dt)
+        # print(payload)
+        response = requests.post(self.domain + '/account_deposit', json=payload)
+        response.raise_for_status()
+        return response.json()
+    
+    def get_withdraw_list(self, currency:str, dt:str) -> dict:
+        payload = dict(ak=self.api_key, sk=self.secret_key, currency=currency, dt=dt)
+        response = requests.post(self.domain + '/account_withdraw', json=payload)
+        response.raise_for_status()
+        return response.json()
