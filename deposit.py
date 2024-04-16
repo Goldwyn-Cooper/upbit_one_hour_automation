@@ -10,8 +10,8 @@ def main():
     bot = TelegramBot()
     # 잔고를 조회한다
     cash_val = client.check_cash()
-    # 잔고가 10010원 미만이면 입금을 시도한다
-    MIN_CASH = 10010
+    # 잔고가 20020원 미만이면 입금을 시도한다
+    MIN_CASH = 20020
     if cash_val >= MIN_CASH: return
     # 입금을 시도했다는 것을 이슈로 남긴다
     amount = max(5000, int(MIN_CASH - cash_val) + 1)
