@@ -29,9 +29,10 @@ def main():
     # client.buy('BTC', 5000)
     # client.buy('ETH', 5000)
     client.buy('ETH', 10000) # 이더 매수 
+    client.buy('NEO', 10000) # 이더 매수 
     # 매수를 시도했다는 것을 이슈로 남긴다
-    print('Wait 5 seconds...')
-    sleep(5)
+    # print('Wait 5 seconds...')
+    # sleep(5)
     # df = pd.DataFrame(client.get_balance()).T
     # df = df.loc[['BTC', 'ETH'], ['avg_buy_price']]
     # df['current_price'] = [pyupbit.get_current_price(f'KRW-{ticker}')
@@ -41,12 +42,12 @@ def main():
     # df['rate'] = ((df.current_price - df.avg_buy_price)
     #               / df.avg_buy_price * 100).round(2)
     # df.columns = ['매수평균가', '현재가', '수익률']
-    bot.send_message('📌 UPBIT_1HOUR_AUTOMATION')
+    # bot.send_message('📌 UPBIT_1HOUR_AUTOMATION')
     # msg = '비트코인과 이더리움을 매수했습니다!\n\n'
-    msg = '이더리움을 매수했습니다!'
+    msg = '이더리움과 네오를 매수했습니다!'
     # msg += df.to_string()
-    bot.send_message(msg)
-    header = f'매수 성공 ({get_now_text()})'
+    # bot.send_message(msg)
+    header = f'매수 시도 ({get_now_text()})'
     # body = '비트코인과 이더리움을 매수했습니다!\n\n'
     # body += df.astype(str).to_markdown()
     make_github_issue(header, msg)

@@ -29,4 +29,4 @@ jobs:
             AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
             AIRTABLE_TABLE_ID: ${{ secrets.AIRTABLE_TABLE_ID }}
             AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
-        run: python note.py
+        run: python note_eth.py
