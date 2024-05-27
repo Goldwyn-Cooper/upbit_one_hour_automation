@@ -3,7 +3,8 @@ name: Buying Coins
 on:
   schedule:
     - cron: '10 4 * * *'
-  # push:
+  workflow_dispatch:
+    # push:
   #   branches:
   #     - main
 
